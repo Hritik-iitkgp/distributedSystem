@@ -18,7 +18,7 @@ def make_requests(server_count):
     with ThreadPoolExecutor(max_workers=server_count) as executor:
         futures = []
 
-        for _ in range(100):
+        for _ in range(10000):
             future = executor.submit(make_request, "/home")
             futures.append(future)
 
