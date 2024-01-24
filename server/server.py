@@ -15,8 +15,8 @@ def home():
 @app.route('/heartbeat', methods=['GET'])
 def heartbeat():
     response={
-        "message": "",
-        "status": "successful"
+        "message": ""
+        
         
     }
     return jsonify(response), 200
