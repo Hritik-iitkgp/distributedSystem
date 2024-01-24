@@ -1,0 +1,25 @@
+version: "3"
+services:
+      lb:
+        build: ./lb # Path to the Dockerfile
+        image: firstlb
+        container_name: lb
+        ports:
+         - "5000:5000" # Exposing port to host
+        volumes:
+         - /var/run/docker.sock:/var/run/docker.sock
+         - ./lb:/app
+         - ./server:/app
+        networks:
+         - net1
+        # This share host’s the docker daemon with the container. Now, the container can spawn
+        # other containers just like host
+        privileged: true # This should be true to share the docker daemon
+        command: python3 lb.py
+        # networks:
+        #       - net1
+
+networks:
+    net1:
+     name: net1
+      
