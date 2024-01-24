@@ -9,7 +9,7 @@ clean:
 	-docker-compose down
 
 clean_servers:
-	-docker rm -f $$(docker ps -aqf "ancestor=serverimg")
+	-docker rm -f $$(docker ps -aqf "ancestor=firstbuild")
 
 
 	
